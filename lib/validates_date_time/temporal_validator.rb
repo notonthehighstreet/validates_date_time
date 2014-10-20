@@ -1,7 +1,7 @@
 module ValidatesDateTime
   class TemporalValidator < ActiveModel::EachValidator
     def initialize(options)
-      options.assert_valid_keys :attributes, :message, :before_message, :after_message, :before, :after, :if, :on, :allow_blank, :_parse_method
+      options.assert_valid_keys :attributes, :class, :message, :before_message, :after_message, :before, :after, :if, :on, :allow_blank, :_parse_method
 
       # We must remove this from the configuration that is passed to validates_each because
       # we want do not want to skip validation if the type cast value is blank.
