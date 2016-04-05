@@ -25,6 +25,12 @@ class ActiveRecord::ConnectionAdapters::Column
 
     protected
 
+    def fast_string_to_date(string)
+      if string =~ Format::ISO_DATE
+        new_date $1.to_i, $2.to_i, $3.to_i
+      end
+    end
+
     def fallback_string_to_date(value)
       return value if value.is_a?(Date)
       return value.to_date if value.is_a?(Time) || value.is_a?(DateTime)
